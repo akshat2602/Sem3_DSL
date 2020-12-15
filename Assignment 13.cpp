@@ -109,8 +109,8 @@ int main() {
 	Dequeue dq;
 
 	while (true) {
-		cout << "\nEnter choice --> \n1 to add to front.\n2 to add to rear.\n";
-		cout << "3 to get front\n4 to get rear.\n5 to remove from front.\n6 to remove from rear.\n0 to exit.\n:";
+		cout << "\nEnter choice --> \n1 Add to front.\n2 Add to rear.\n";
+		cout << "3 Get front\n4 Get rear.\n5 Remove from front.\n6 Remove from rear.\n0 Exit.\n:";
 		int choice; cin >> choice;
 
 		if (choice == 0) break;

@@ -74,10 +74,8 @@ public:
         cout << "Enter the expression : ";
         cin >> exp;
     }
-
     bool check()
     {
-
         for (int i = 0; i <= sizeof(exp); i++)
         {
             if (exp[i] == '(' || exp[i] == '{' || exp[i] == '[')
@@ -85,7 +83,6 @@ public:
                 sp->push(exp[i]);
                 continue;
             }
-
             char x;
             switch (exp[i])
             {
@@ -138,11 +135,11 @@ int main()
     expr.input();
     if (expr.check())
     {
-        cout << "Parenthesis are mathcing in the given expression" << endl;
+        cout << "Parenthesis are matching in the given expression" << endl;
     }
     else
     {
-        cout << "Parenthesis are NOT mathcing in the given expression" << endl;
+        cout << "Parenthesis are NOT matching in the given expression" << endl;
     }
 
     return 0;

@@ -10,17 +10,21 @@ private:
 	int job_number;
 	static int job_count;
 public:
-	Job(string job = "") {
+	Job(string job = "") 
+	{
 		job_title = job;
 	}
-	void setData() {
+	void setData() 
+	{
 		cout << "Enter Job Title: "; cin >> job_title;
 		job_number = job_count++;
 	}
-	string getTitle() {
+	string getTitle() 
+	{
 		return job_title;
 	}
-	int getJobNumber() {
+	int getJobNumber() 
+	{
 		return job_number;
 	}
 	friend ostream& operator << (ostream&, Job);
@@ -28,7 +32,8 @@ public:
 
 int Job::job_count = 1;
 
-ostream& operator << (ostream& dout, Job i) {
+ostream& operator << (ostream& dout, Job i) 
+{
 	dout << "Job Number: " << i.job_number << endl;
 	dout << "Job Title: " << i.job_title << endl;
 	return dout;
@@ -92,7 +97,7 @@ int main() {
 
 	while (true) {
 		cout << "\nWhat do you want to do??\n";
-		cout << "Enter\n\t1 to add job to queue.\n\t2 to get current job.\n\t3 to finish the current job.\n\t4 to print queue\n\t0 to exit.\n:";
+		cout << "Enter\n\t1 Add job to queue.\n\t2 Get current job.\n\t3 Finish the current job.\n\t4 Print queue\n\t0 Exit.\n:";
 		int choice = 0; cin >> choice;
 		if (choice == 1) {
 			if (qu.isFull())

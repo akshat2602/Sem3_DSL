@@ -43,32 +43,55 @@ class PriorityQueue {
 private:
 	T arr[D];
 	int n, max_ele_idx;
-	void updateMaxEleIdx() {
-		for (int i = 0; i < n; i++) {
+	void updateMaxEleIdx() 
+	{
+		for (int i = 0; i < n; i++) 
+		{
 			if (arr[max_ele_idx] <= arr[i])
 				max_ele_idx = i;
 		}
 	}
 public:
-	PriorityQueue() { n = 0; }
-	int getSize() { return n; }
-	bool isEmpty() { return (n < 1); }
-	bool isFull() { return (n == D); }
-	T Top() { return arr[max_ele_idx]; }
-	void Push(T x) {
-		if (!isFull()) {
+	PriorityQueue() 
+	{ 
+		n = 0; 
+	}
+	int getSize() 
+	{ 
+		return n; 
+	}
+	bool isEmpty() 
+	{ 
+		return (n < 1); 
+	}
+	bool isFull() 
+	{ 
+		return (n == D); 
+	}
+	T Top() 
+	{ 
+		return arr[max_ele_idx]; 
+	}
+	void Push(T x) 
+	{
+		if (!isFull()) 
+		{
 			n++;
 			arr[n-1] = x;
 			updateMaxEleIdx();
 		}
 	}
-	void Pop() {
-		if (isEmpty()) return;
+	void Pop() 
+	{
+		if (isEmpty()) {
+			return;
+		}
 		swap(arr[max_ele_idx], arr[n-1]);
 		n--;
 		updateMaxEleIdx();
 	}
-	void Print() {
+	void Print() 
+	{
 		if (isEmpty()) cout << "Empty List.\n";
 
 		for (int i = 0; i < n; i++)
@@ -81,7 +104,7 @@ int main() {
 
 	while (true) {
 		cout << "\nWhat do you want to do??\n";
-		cout << "Enter\n\t1 to add in the list.\n\t2 to get from the list.\n\t3 to remove from the list.\n";
+		cout << "Enter\n\t1 Add in the list.\n\t2 Get from the list.\n\t3 Remove from the list.\n";
 		cout << "\t4 to print list\n\t0 to exit.\n:";
 		int choice = 0; cin >> choice;
 		if (choice == 1) {

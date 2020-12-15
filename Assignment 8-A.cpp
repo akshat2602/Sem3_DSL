@@ -12,7 +12,6 @@ private:
 
 public:
     // Constructor of node used to initialize values
-    // this pointer used to differentiate class member names and parameter names
     node(int roll_no, string name)
     {
         this->name = name;
@@ -47,36 +46,14 @@ public:
     void add_node(int roll_no, string name)
     {
         node* new_node = get_NewNode(roll_no, name);
-        if (head == NULL) head = new_node;
-        else {
-            new_node->next = head;
+        if (head == NULL) 
+        {
             head = new_node;
         }
-    }
-
-    // deletes node based on roll_no of student
-    // not used
-    void delete_node(int ele)
-    {
-        if (head->roll_no == ele)
+        else 
         {
-            node* temp = head;
-            head = head->next;
-            delete temp;
-            return;
-        }
-        node *current_node, *previous_node;
-        current_node = head;
-        previous_node = NULL;
-        while (current_node != NULL && current_node->roll_no != ele)
-        {
-            previous_node = current_node;
-            current_node = current_node->next;
-        }
-        if (!current_node) cout << "The student is not present in the list.\n";
-        else {
-            previous_node->next = current_node->next;
-            delete current_node;
+            new_node->next = head;
+            head = new_node;
         }
     }
 
@@ -134,8 +111,12 @@ public:
             cout << "Enter name: ";
             cin >> name;
             // makes sure to avoid duplicate entries based on roll_no
-            if (!students.isPresent(roll_no)) students.add_node(roll_no, name);
-            else {
+            if (!students.isPresent(roll_no)) 
+            {
+                students.add_node(roll_no, name);
+            }
+            else 
+            {
                 cout << "Roll number is already present in list. Enter again.\n";
                 i--;
             }
@@ -155,7 +136,10 @@ public:
         node* temp_B = B.students.head;
         while (temp_B)
         {
-            if (!students.isPresent(temp_B->roll_no)) union_set.students.add_node(temp_B->roll_no, temp_B->name);
+            if (!students.isPresent(temp_B->roll_no)) 
+            {
+                union_set.students.add_node(temp_B->roll_no, temp_B->name);
+            }
             temp_B = temp_B->next;
         }
 
@@ -168,7 +152,10 @@ public:
         node* temp_a = students.head;
         while (temp_a)
         {
-            if (B.students.isPresent(temp_a->roll_no)) intersection_set.students.add_node(temp_a->roll_no, temp_a->name);
+            if (B.students.isPresent(temp_a->roll_no)) 
+            {
+                intersection_set.students.add_node(temp_a->roll_no, temp_a->name);
+            }
             temp_a = temp_a->next;
         }
         return intersection_set;
@@ -180,7 +167,10 @@ public:
         node* temp_a = students.head;
         while (temp_a)
         {
-            if (!B.students.isPresent(temp_a->roll_no)) difference_set.students.add_node(temp_a->roll_no, temp_a->name);
+            if (!B.students.isPresent(temp_a->roll_no)) 
+            {
+                difference_set.students.add_node(temp_a->roll_no, temp_a->name);
+            }
             temp_a = temp_a->next;
         }
         return difference_set;
